@@ -68,11 +68,17 @@ nav {
     font-weight: 600;
     text-decoration: none;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: pulse 2s infinite;
 }
 
 .cta-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(8, 187, 191, 0.3);
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
 }
 
 /* Main Section */
@@ -184,13 +190,76 @@ nav {
         font-size: 24px;
     }
 }
-/* CTA Button pulse */
-.cta-button {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    animation: pulse 2s infinite;
+/* Download Page */
+.download-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 160px 24px 80px;
+    text-align: center;
+    background: #171717;
+    color: #fff;
 }
 
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+.download-hero h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #08bbbf, #9ad63c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.download-hero p {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 700px;
+}
+
+.download-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding-bottom: 120px;
+}
+
+.download-btn {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: linear-gradient(135deg, #08bbbf, #9ad63c);
+}
+
+.download-btn img {
+    width: 32px;
+    height: 32px;
+}
+
+.download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(8, 187, 191, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .download-hero h1 { font-size: 36px; }
+    .download-hero p { font-size: 18px; }
+    .download-buttons { gap: 24px; }
+    .download-btn { font-size: 16px; padding: 14px 28px; }
+}
+
+@media (max-width: 480px) {
+    .download-hero h1 { font-size: 28px; }
+    .download-hero p { font-size: 16px; }
+    .download-btn { font-size: 14px; padding: 12px 24px; }
 }

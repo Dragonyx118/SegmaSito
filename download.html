@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download - SegmaSirra</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/logoSito-removebg-preview.png">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo" onclick="window.location.href='index.html'">SegmaSirra</div>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#industries">Ligmas</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Download Section -->
+    <section class="download-hero">
+        <h1>Scarica l'App di SegmaSirra</h1>
+        <p>Porta SegmaSirra sempre con te! Disponibile su Android e iOS.</p>
+    </section>
+
+    <!-- Download Buttons -->
+    <section class="download-buttons">
+        <a href="#" class="download-btn android">
+            <img src="images/android-icon.png" alt="Android Logo">
+            <span>Download per Android</span>
+        </a>
+        <a href="#" class="download-btn ios">
+            <img src="images/ios-icon.png" alt="iOS Logo">
+            <span>Download per iOS</span>
+        </a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 SegmaSirra. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        // Animazioni GSAP
+        gsap.from(".download-hero h1", { opacity: 0, y: -30, duration: 1, ease: "power2.out" });
+        gsap.from(".download-hero p", { opacity: 0, y: -20, duration: 1, delay: 0.3, ease: "power2.out" });
+        gsap.from(".download-btn", { opacity: 0, scale: 0.8, stagger: 0.2, duration: 0.8, delay: 0.6, ease: "back.out(1.7)" });
+    </script>
+</body>
+</html>
