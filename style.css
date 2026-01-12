@@ -184,3 +184,13 @@ nav {
         font-size: 24px;
     }
 }
+/* CTA Button pulse */
+.cta-button {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}

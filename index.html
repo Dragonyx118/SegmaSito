@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <img src="logoSito-removebg-preview.png" alt="Site Logo" class="logo">
+    <link rel="icon" type="image/png" href="images/logoSito-removebg-preview.png">
     <title>SegmaSirra</title>
 </head>
 <body>
@@ -26,7 +26,7 @@
             <div class="canvas-container">
                 <canvas id="canvas"></canvas>
             </div>
-            <p>We transform ideas into digital experiences that captivate and inspire audiences worldwide</p>
+            <p>We transform ideas into brainrot that captivate and inspire audiences worldwide</p>
         </section>
 
         <section class="content-section">
@@ -102,7 +102,58 @@
                 scrollProgress = self.progress;
             }
         });
+        // --- Logo fade-in e navbar links ---
+    gsap.from(".logo", {
+        opacity: 0,
+        y: -20,
+        duration: 1,
+        ease: "power2.out"
+    });
 
+    gsap.from(".nav-links li", {
+        opacity: 0,
+        y: -10,
+        stagger: 0.1,
+        duration: 0.8,
+        ease: "power2.out"
+    });
+
+    // --- Sezioni content-section che entrano con slide ---
+    gsap.utils.toArray(".content-section h2").forEach(section => {
+        gsap.from(section, {
+            scrollTrigger: {
+                trigger: section,
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none none"
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            ease: "power2.out"
+        });
+    });
+
+    // --- Paragrafo principale che ondeggia leggermente ---
+    const paragraph = document.querySelector(".paragraph p");
+    gsap.to(paragraph, {
+        y: 10,
+        repeat: -1,
+        yoyo: true,
+        duration: 2,
+        ease: "sine.inOut"
+    });
+
+    // --- Mouse interaction per le particelle (Three.js) ---
+    let mouseX = 0;
+    let mouseY = 0;
+
+    document.addEventListener("mousemove", (e) => {
+        mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+        mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+    });
+
+    // Nel tuo animate() di Three.js, aggiungi:
         // Animation Loop
         function animate() {
             requestAnimationFrame(animate);
@@ -114,8 +165,6 @@
             particles.rotation.x = scrollProgress * Math.PI;
             
             // Animate sphere
-            sphere.rotation.y = elapsedTime * 0.1;
-            sphere.rotation.x = elapsedTime * 0.05;
             sphere.scale.setScalar(1 + scrollProgress * 0.5);
             sphere.material.opacity = 0.1 + scrollProgress * 0.2;
             
@@ -132,6 +181,8 @@
             color.setHSL(0.5 + scrollProgress * 0.2, 0.7, 0.5);
             particlesMaterial.color = color;
             sphereMaterial.color = color;
+            particles.rotation.y = elapsedTime * 0.05 + scrollProgress * Math.PI * 2 + mouseX * 0.5;
+            particles.rotation.x = scrollProgress * Math.PI + mouseY * 0.5;
             
             renderer.render(scene, camera);
         }
