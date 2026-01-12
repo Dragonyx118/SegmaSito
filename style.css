@@ -12,7 +12,22 @@ body {
     color: #ffffff;
     overflow-x: hidden;
 }
+.video-background {
+    position: fixed; /* resta fisso durante lo scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0; /* dietro gli altri contenuti */
+}
 
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* riempie tutto senza deformarsi */
+    pointer-events: none; /* il video non interferisce con clic e scroll */
+}
 /* Navigation Bar */
 nav {
     position: fixed;
@@ -21,16 +36,16 @@ nav {
     transform: translateX(-50%);
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.1);
     border-radius: 50px;
-    padding: 12px 32px;
+    padding: 20px 32px;
     display: flex;
     align-items: center;
     gap: 48px;
     z-index: 1000;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
-
+/* Scritta SegmaSirra barra superiore */
 .logo {
     font-size: 20px;
     font-weight: 700;
