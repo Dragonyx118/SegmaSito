@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>SegmaSirra</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">SegmaSirra</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#industries">Ligmas</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact" class="cta-button">Download</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main">
+        <section class="paragraph">
+            <div class="canvas-container">
+                <canvas id="canvas"></canvas>
+            </div>
+            <p>We transform ideas into digital experiences that captivate and inspire audiences worldwide</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Our Balls</h2>
+        </section>
+
+        <section class="content-section">
+            <h2>Let's Charlie Kirk</h2>
+        </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script>
+        // Setup Three.js Scene
+        const canvas = document.getElementById('canvas');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        camera.position.z = 5;
+
+        // Create Particles
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particlesCount = 5000;
+        const positions = new Float32Array(particlesCount * 3);
+        
+        for(let i = 0; i < particlesCount * 3; i++) {
+            positions[i] = (Math.random() - 0.5) * 10;
+        }
+        
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 0.02,
+            color: 0x08bbbf,
+            transparent: true,
+            opacity: 0.8,
+            blending: THREE.AdditiveBlending
+        });
+        
+        const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particles);
+
+        // Create gradient sphere
+        const sphereGeometry = new THREE.SphereGeometry(2, 64, 64);
+        const sphereMaterial = new THREE.MeshBasicMaterial({
+            color: 0x08bbbf,
+            transparent: true,
+            opacity: 0.1,
+            wireframe: true
+        });
+        const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+        scene.add(sphere);
+
+        // Animation variables
+        let scrollProgress = 0;
+        const clock = new THREE.Clock();
+
+        // GSAP ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        ScrollTrigger.create({
+            trigger: '.paragraph',
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true,
+            onUpdate: (self) => {
+                scrollProgress = self.progress;
+            }
+        });
+
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            const elapsedTime = clock.getElapsedTime();
+            
+            // Rotate particles based on time and scroll
+            particles.rotation.y = elapsedTime * 0.05 + scrollProgress * Math.PI * 2;
+            particles.rotation.x = scrollProgress * Math.PI;
+            
+            // Animate sphere
+            sphere.rotation.y = elapsedTime * 0.1;
+            sphere.rotation.x = elapsedTime * 0.05;
+            sphere.scale.setScalar(1 + scrollProgress * 0.5);
+            sphere.material.opacity = 0.1 + scrollProgress * 0.2;
+            
+            // Animate particles based on scroll
+            const positions = particles.geometry.attributes.position.array;
+            for(let i = 0; i < positions.length; i += 3) {
+                const i3 = i + 1;
+                positions[i3] = Math.sin(elapsedTime + positions[i]) * (0.5 + scrollProgress);
+            }
+            particles.geometry.attributes.position.needsUpdate = true;
+            
+            // Color transition based on scroll
+            const color = new THREE.Color();
+            color.setHSL(0.5 + scrollProgress * 0.2, 0.7, 0.5);
+            particlesMaterial.color = color;
+            sphereMaterial.color = color;
+            
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        // Handle resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        });
+    </script>
+</body>
+</html>
