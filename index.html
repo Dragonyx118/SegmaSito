@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/logoSito-removebg-preview.png">
+    <title>SegmaSirra - Automazione Intelligente</title>
+</head>
+<body>
+    <!-- Sfondo animato-->
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="videos/background1.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo" onclick="window.location.href='index.html'" style="cursor: pointer;">SegmaSirra</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#industries">Features</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="#contact">Contatti</a></li>
+            <li><a href="download.html" class="cta-button">Download</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main">
+        <section class="paragraph" id="home">
+            <div class="canvas-container">
+                <canvas id="canvas"></canvas>
+            </div>
+            <p>Trasformiamo i terroni in carne da macello che ottimizza, alimenta e automatizza la tua serra</p>
+        </section>
+
+        <section class="content-section" id="industries">
+            <div class="features-container">
+                <h2>Funzionalità Avanzate</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>🌡️ Controllo Clima</h3>
+                        <p>Monitoraggio temperatura, umidità e luminosità in tempo reale</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>💧 Irrigazione Smart</h3>
+                        <p>Sistema automatizzato di irrigazione intelligente</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📊 Analytics</h3>
+                        <p>Dati e statistiche per ottimizzare la produzione</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🔔 Notifiche</h3>
+                        <p>Avvisi in tempo reale sullo stato della serra</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" id="contact">
+            <div class="contact-container">
+                <h2>Contattaci</h2>
+                <p>Interessato al progetto SegmaSirra? Non Scrivici perchè questo tasto non va!</p>
+                <a href="mailto:info@sigmaserra.com" class="contact-button">stocazzo@sigmaserra.com</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 SegmaSirra. Tutti i diritti non riservati i guess?.</p>
+    </footer>
+
+    <!-- Script esterni -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Script interno -->
+    <script src="script.js"></script>
+</body>
+</html>

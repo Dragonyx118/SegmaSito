@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team - SegmaSirra</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/logoSito-removebg-preview.png">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo" onclick="window.location.href='index.html'" style="cursor: pointer;">SegmaSirra</div>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#industries">Features</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="index.html#contact">Contatti</a></li>
+            <li><a href="download.html" class="cta-button">Download</a></li>
+        </ul>
+    </nav>
+
+    <!-- Team Hero Section -->
+    <section class="team-hero">
+        <h1>Il Nostro Team</h1>
+        <p>Conosci le menti dietro SegmaSirra<br>Non ho idea del perchè i blocchi dei membri sono a scala giuro</p>
+    </section>
+
+    <!-- Team Members -->
+    <section class="team-section">
+        <div class="team-grid">
+            <!-- Daniele Cerioli -->
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="images/daniele.png" alt="Daniele Cerioli">
+                </div>
+                <h3>Daniele Cerioli</h3>
+                <p class="team-title">Lord Di Ricengo</p>
+                <p class="team-description">Sta per uccidere Sara De Simone, ha vinto (dove cazzo è il mio raspberry)</p>
+            </div>
+
+            <!-- Andrei Corduneanu -->
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="images/andrei.png" alt="Andrei Corduneanu">
+                </div>
+                <h3>Andrei Corduneanu</h3>
+                <p class="team-title">Boss del Rame</p>
+                <p class="team-description">Il boss delle torte, il vero sodomizzatore delle troie. Corde nell'ano è falegname dal 2007 (anti peppe pilons)</p>
+            </div>
+
+            <!-- Simone Panelli -->
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="images/simone.jpeg" alt="Simone Panelli">
+                </div>
+                <h3>Simone Panelli</h3>
+                <p class="team-title">Guts ma Down</p>
+                <p class="team-description">Il bro non lavora. Penelli crea l'interfaccia utente e le applicazioni che rendono SigmaSerra facile e intuitivo da utilizzare.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 SegmaSirra. Tutti i diritti non riservati i guess?.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Hero animation
+        gsap.from(".team-hero h1", { opacity: 0, y: -30, duration: 1, ease: "power2.out" });
+        gsap.from(".team-hero p", { opacity: 0, y: -20, duration: 1, delay: 0.2, ease: "power2.out" });
+        
+        // Team cards animation
+        gsap.from(".team-card", { 
+            scrollTrigger: {
+                trigger: ".team-grid",
+                start: "top 80%",
+            },
+            opacity: 0, 
+            y: 50, 
+            stagger: 0.2, 
+            duration: 0.8, 
+            ease: "power2.out" 
+        });
+    </script>
+</body>
+</html>
