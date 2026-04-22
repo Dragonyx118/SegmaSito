@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - SegmaSirra</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/logoSito-removebg-preview.png">
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="videos/background3.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <nav>
+        <div class="logo" onclick="window.location.href='index.html'" style="cursor: pointer;">SegmaSirra</div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="features.html" class="nav-link active">Features</a></li>
+            <li><a href="team.html" class="nav-link">Team</a></li>
+            <li><a href="contact.html" class="nav-link">Contatti/FaQ</a></li>
+            <li><a href="download.html" class="cta-button">Download</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="team.html">Team</a>
+        <a href="contact.html">Contatti</a>
+        <a href="download.html" class="cta-button">Download</a>
+    </div>
+
+    <!-- Hero -->
+    <section class="page-hero">
+        <div class="section-label">FUNZIONALITÀ</div>
+        <h1>Tutto ciò di cui hai <span class="gradient-text">bisogno</span></h1>
+        <p>Una piattaforma completa per il monitoraggio e l'automazione intelligente della tua serra</p>
+    </section>
+
+    <!-- Features Detail -->
+    <section class="features-detail-section">
+        <div class="features-detail-container">
+
+            <div class="feature-detail-card">
+                <div class="feature-detail-icon">🌡️</div>
+                <div class="feature-detail-content">
+                    <h3>Controllo Clima</h3>
+                    <p>Monitora in tempo reale temperatura, umidità e luminosità tramite sensori ad alta precisione (DHT11, SHT45). Visualizza grafici storici e imposta soglie di allarme personalizzate.</p>
+                    <ul class="feature-list">
+                        <li>✅ Temperatura e umidità in tempo reale</li>
+                        <li>✅ Grafici storici a 24h / 7 giorni</li>
+                        <li>✅ Soglie di allarme configurabili</li>
+                        <li>✅ Supporto multi-sensore per zone diverse</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feature-detail-card feature-detail-card--reverse">
+                <div class="feature-detail-icon">💧</div>
+                <div class="feature-detail-content">
+                    <h3>Irrigazione Smart</h3>
+                    <p>Il sistema legge i sensori di umidità del suolo e attiva automaticamente la pompa quando necessario. Puoi anche controllare manualmente tutto dall'app.</p>
+                    <ul class="feature-list">
+                        <li>✅ Attivazione automatica basata su umidità suolo</li>
+                        <li>✅ Controllo manuale da remoto</li>
+                        <li>✅ Scheduling programmabile</li>
+                        <li>✅ Monitoraggio livello di acqua rimasta nella cisterna</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feature-detail-card">
+                <div class="feature-detail-icon">📊</div>
+                <div class="feature-detail-content">
+                    <h3>Analytics Avanzate</h3>
+                    <p>Dashboard con dati aggregati, statistiche di produzione e trend. Ottimizza i consumi e identifica anomalie prima che diventino problemi.</p>
+                    <ul class="feature-list">
+                        <li>✅ Dashboard in tempo reale</li>
+                        <li>✅ Statistiche settimanali e mensili</li>
+                        <li>✅ Report automatici</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feature-detail-card feature-detail-card--reverse">
+                <div class="feature-detail-icon">🔔</div>
+                <div class="feature-detail-content">
+                    <h3>Notifiche Push</h3>
+                    <p>Ricevi avvisi istantanei quando qualcosa non va: temperatura fuori soglia, umidità critica, pompa in errore o connessione persa.</p>
+                    <ul class="feature-list">
+                        <li>✅ Notifiche push su Android</li>
+                        <li>✅ Alert configurabili per ogni parametro</li>
+                        <li>✅ Log storico degli eventi</li>
+                        <li>✅ Priorità personalizzabile</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feature-detail-card">
+                <div class="feature-detail-icon">☀️</div>
+                <div class="feature-detail-content">
+                    <h3>Energia Solare</h3>
+                    <p>Il sistema è progettato per funzionare con pannelli solari. L'ESP32 e tutti i componenti sono interamente alimentati da energia green!</p>
+                    <ul class="feature-list">
+                        <li>✅ Ottimizzato per basso consumo</li>
+                        <li>✅ Compatibile con un piccolo pannelo solare</li>
+                        <li>✅ Deep sleep intelligente</li>
+                        <li>✅ Monitoraggio stato batteria</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feature-detail-card feature-detail-card--reverse">
+                <div class="feature-detail-icon">🔗</div>
+                <div class="feature-detail-content">
+                    <h3>Connettività</h3>
+                    <p>ESP32 + WiFi per la connessione locale, con Firebase come backend cloud. Accesso remoto garantito da qualsiasi parte del mondo.</p>
+                    <ul class="feature-list">
+                        <li>✅ WiFi 2.4GHz integrato</li>
+                        <li>✅ Firebase Realtime Database</li>
+                        <li>✅ Accesso remoto globale</li>
+                        <li>✅ OTA update firmware</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-inner">
+            <h2>Convinto? Scarica l'app!</h2>
+            <p>Disponibile su Android</p>
+            <a href="download.html" class="cta-button-hero">Scarica SegmaSirra</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-logo">SegmaSirra</div>
+            <div class="footer-links">
+                <a href="features.html">Features</a>
+                <a href="team.html">Team</a>
+                <a href="contact.html">Contatti</a>
+                <a href="download.html">Download</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 SegmaSirra. Tutti i diritti non riservati i guess?</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from(".page-hero .section-label", { opacity: 0, y: -20, duration: 0.6 });
+        gsap.from(".page-hero h1", { opacity: 0, y: -30, duration: 1, delay: 0.1 });
+        gsap.from(".page-hero p", { opacity: 0, y: -20, duration: 1, delay: 0.3 });
+        
+        gsap.utils.toArray(".feature-detail-card").forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: { trigger: card, start: "top 85%" },
+                opacity: 0, x: i % 2 === 0 ? -60 : 60, duration: 0.9, ease: "power2.out"
+            });
+        });
+
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+    </script>
+    <script src="cursor.js"></script>
+</body>
+</html>

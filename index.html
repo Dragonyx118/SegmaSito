@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/logoSito-removebg-preview.png">
+    <title>SegmaSirra - Botanica Intelligente</title>
+</head>
+<body>
+    <!-- Sfondo animato-->
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="videos/background1.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+    
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo" onclick="window.location.href='index.html'" style="cursor: pointer;">SegmaSirra</div>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="features.html" class="nav-link">Features</a></li>
+            <li><a href="team.html" class="nav-link">Team</a></li>
+            <li><a href="contact.html" class="nav-link">Contatti/FaQ</a></li>
+            <li><a href="download.html" class="cta-button">Download</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home">Home</a>
+        <a href="features.html">Features</a>
+        <a href="team.html">Team</a>
+        <a href="contact.html">Contatti</a>
+        <a href="download.html" class="cta-button">Download</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+        <section class="paragraph" id="home">
+            <div class="canvas-container">
+                <canvas id="canvas"></canvas>
+            </div>
+            <div class="hero-content">
+                <div class="hero-badge">🌱 Automazione Serra</div>
+                <h1 class="hero-title">Coltiva il Futuro<br><span class="gradient-text">con Intelligenza</span></h1>
+                <p class="hero-sub">Utilizziamo energia pulita per rendere green la coltivazione di qualsiasi pianta</p>
+                <div class="hero-actions">
+                    <a href="download.html" class="cta-button-hero">Scarica l'App</a>
+                    <a href="features.html" class="ghost-button">Scopri le Features →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">99<span>%</span></div>
+                    <div class="stat-label">Uptime Garantito</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4<span>+</span></div>
+                    <div class="stat-label">Sensori Integrati</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24<span>/7</span></div>
+                    <div class="stat-label">Monitoraggio</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3<span>x</span></div>
+                    <div class="stat-label">Più produttività</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section features-preview" id="industries">
+            <div class="features-container">
+                <div class="section-label">FUNZIONALITÀ</div>
+                <h2>Tecnologia al Servizio<br>della <span class="gradient-text">Natura</span></h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🌡️</div>
+                        <h3>Controllo Clima</h3>
+                        <p>Monitoraggio temperatura, umidità e luminosità in tempo reale con grafici storici</p>
+                        <a href="features.html" class="feature-link">Scopri →</a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💧</div>
+                        <h3>Irrigazione Smart</h3>
+                        <p>Sistema automatizzato di irrigazione intelligente basato su sensori di umidità del suolo</p>
+                        <a href="features.html" class="feature-link">Scopri →</a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Analytics</h3>
+                        <p>Dati e statistiche avanzate per ottimizzare la produzione e ridurre gli sprechi</p>
+                        <a href="features.html" class="feature-link">Scopri →</a>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔔</div>
+                        <h3>Notifiche</h3>
+                        <p>Avvisi in tempo reale sullo stato della serra direttamente sul tuo smartphone</p>
+                        <a href="features.html" class="feature-link">Scopri →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-inner">
+                <h2>Pronto a rivoluzionare la tua botanica?</h2>
+                <p>Scarica l'app SegmaSirra e inizia a monitorare le tue piante ovunque</p>
+                <a href="download.html" class="cta-button-hero">Scarica Gratis</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-logo">SegmaSirra</div>
+            <div class="footer-links">
+                <a href="features.html">Features</a>
+                <a href="team.html">Team</a>
+                <a href="contact.html">Contatti</a>
+                <a href="download.html">Download</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 SegmaSirra. Tutti i diritti non riservati i guess?</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+    </script>
+    <script src="cursor.js"></script>
+</body>
+</html>

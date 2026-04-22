@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti - SegmaSirra</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/logoSito-removebg-preview.png">
+    <style>
+        /* ---- GitHub banner ---- */
+        .github-section {
+            padding: 0 24px 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .github-banner {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.60);
+            border: 1.5px solid rgba(255,255,255,0.85);
+            border-radius: 24px;
+            padding: 40px 48px;
+            backdrop-filter: blur(24px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.07), 0 1px 0 #fff inset;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        .github-banner:hover {
+            background: rgba(255,255,255,0.78);
+            box-shadow: 0 10px 40px rgba(8,187,191,0.12), 0 1px 0 #fff inset;
+        }
+
+        .github-banner-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .github-icon-wrap {
+            width: 64px; height: 64px;
+            background: linear-gradient(135deg, #1a2a1a, #2d4a2d);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+
+        .github-icon-wrap svg { width: 36px; height: 36px; fill: #ffffff; }
+
+        .github-banner-text h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .github-banner-text p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .github-stats { display: flex; gap: 24px; flex-shrink: 0; }
+
+        .github-stat { text-align: center; }
+
+        .github-stat-num {
+            font-size: 22px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--teal), var(--green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .github-stat-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .github-link-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #1a2a1a, #2a3d2a);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        .github-link-btn svg { width: 20px; height: 20px; fill: #fff; }
+
+        .github-link-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+        }
+
+        /* ---- FAQ ---- */
+        .faq-section {
+            padding: 0 24px 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .faq-inner { max-width: 1100px; margin: 0 auto; }
+
+        .faq-header { margin-bottom: 32px; }
+
+        .faq-header h2 { font-size: 32px; font-weight: 700; color: var(--text); }
+
+        .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+        .faq-item {
+            background: rgba(255,255,255,0.60);
+            border: 1.5px solid rgba(255,255,255,0.85);
+            border-radius: 20px;
+            padding: 28px 32px;
+            backdrop-filter: blur(24px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.07), 0 1px 0 #fff inset;
+            transition: background 0.3s;
+        }
+
+        .faq-item:hover { background: rgba(255,255,255,0.78); }
+
+        .faq-item h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .faq-item h4::before {
+            content: 'Q';
+            font-size: 11px;
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(135deg, var(--teal-light), var(--green-light));
+            padding: 2px 7px;
+            border-radius: 6px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .faq-item p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.65;
+            padding-left: 28px;
+        }
+
+        /* ---- form spacing ridotto ---- */
+        .contact-form { gap: 14px; }
+        .form-group { gap: 6px; }
+        .contact-form-card { padding: 32px; }
+        .contact-form-card h3 { margin-bottom: 4px; }
+        .form-note { margin-bottom: 18px; }
+
+        @media (max-width: 900px) {
+            .github-banner { flex-direction: column; align-items: flex-start; }
+            .github-stats { display: none; }
+            .faq-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .github-banner { padding: 28px 24px; }
+            .github-link-btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="videos/background4.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
+    <nav>
+        <div class="logo" onclick="window.location.href='index.html'" style="cursor: pointer;">SegmaSirra</div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="features.html" class="nav-link">Features</a></li>
+            <li><a href="team.html" class="nav-link">Team</a></li>
+            <li><a href="contact.html" class="nav-link active">Contatti/FaQ</a></li>
+            <li><a href="download.html" class="cta-button">Download</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="team.html">Team</a>
+        <a href="contact.html">Contatti</a>
+        <a href="download.html" class="cta-button">Download</a>
+    </div>
+
+    <!-- Hero -->
+    <section class="page-hero">
+        <div class="section-label">CONTATTI</div>
+        <h1>Scrivici <span class="gradient-text">(se vuoi)</span></h1>
+        <p>Non prometto che risponderemo, ma ci proviamo</p>
+    </section>
+
+    <!-- Form + Info -->
+    <section class="contact-page-section">
+        <div class="contact-page-grid">
+
+            <div class="contact-info-col">
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">📧</div>
+                    <h4>Email</h4>
+                    <p>stocazzo@sigmaserra.com</p>
+                    <span class="contact-note">Risposta garantita*<br><small>*non garantita</small></span>
+                </div>
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">📍</div>
+                    <h4>Sede Operativa</h4>
+                    <p>IIS Galileo Galilei<br>Crema, Lombardia 🇮🇹</p>
+                </div>
+                <div class="contact-info-card">
+                    <div class="contact-info-icon">⏰</div>
+                    <h4>Orari</h4>
+                    <p>Lun–Ven: 8:00–13:00<br>Quando non siamo a scuola</p>
+                </div>
+            </div>
+
+            <div class="contact-form-col">
+                <div class="contact-form-card">
+                    <h3>Manda un messaggio</h3>
+                    <p class="form-note">Questo form non fa niente ma è bello lo stesso</p>
+                    <div class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Nome</label>
+                                <input type="text" placeholder="Il tuo nome" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" placeholder="tua@email.com" class="form-input">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Oggetto</label>
+                            <input type="text" placeholder="Di cosa vuoi parlare?" class="form-input">
+                        </div>
+                        <div class="form-group">
+                            <label>Messaggio</label>
+                            <textarea placeholder="Scrivi qui il tuo messaggio..." class="form-textarea" rows="4"></textarea>
+                        </div>
+                        <button class="form-submit-btn" onclick="handleSubmit(this)">
+                            Invia Messaggio 🚀
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- GitHub Banner -->
+    <section class="github-section">
+        <div class="github-banner">
+            <div class="github-banner-left">
+                <div class="github-icon-wrap">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </div>
+                <div class="github-banner-text">
+                    <h3>Il progetto è open source 🌱</h3>
+                    <p>Codice firmware, schema PCB, app Android — tutto su GitHub.<br>Dai un'occhiata, apri una issue, rubaci il codice.</p>
+                </div>
+            </div>
+
+            <div class="github-stats">
+                <div class="github-stat">
+                    <div class="github-stat-num">3</div>
+                    <div class="github-stat-label">Contributors</div>
+                </div>
+                <div class="github-stat">
+                    <div class="github-stat-num">ESP32</div>
+                    <div class="github-stat-label">+ Android</div>
+                </div>
+                <div class="github-stat">
+                    <div class="github-stat-num">MIT</div>
+                    <div class="github-stat-label">License</div>
+                </div>
+            </div>
+
+            <a href="https://github.com/Dragonyx118/SegmaSirra" target="_blank" class="github-link-btn">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                </svg>
+                Vai al Repository
+            </a>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="faq-inner">
+            <div class="faq-header">
+                <div class="section-label">FAQ</div>
+                <h2>Domande <span class="gradient-text">frequenti</span></h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>Funziona senza internet?</h4>
+                    <p>Sfortunatamente no sia la serra sia dal dispositivo su cui si scarica l'app si deve essere connessi a internet, tuttavia la serra gestisce in automatico le funzioni base, e sull'app si può giocare a snake nell'attesa :)!</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Qual'è la scheda grafica del tuo computer?</h4>
+                    <p>RTX4060 bimbo povero del cazzo</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Quanto costa costruirlo?</h4>
+                    <p>I componenti principali (ESP32, sensori DHT11/SHT45, pompa) costano meno di 30€ in totale + pannello solare. Mentre il software è completamente gratuito e open source.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>È disponibile su iOS?</h4>
+                    <p>No. Apple chiede 99$/anno per pubblicare sull'App Store. Finché non ci regalano quei soldi, iOS può andarsene. 🖕</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-logo">SegmaSirra</div>
+            <div class="footer-links">
+                <a href="features.html">Features</a>
+                <a href="team.html">Team</a>
+                <a href="contact.html">Contatti</a>
+                <a href="download.html">Download</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 SegmaSirra. Tutti i diritti non riservati i guess?</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from(".page-hero .section-label", { opacity: 0, y: -20, duration: 0.6 });
+        gsap.from(".page-hero h1", { opacity: 0, y: -30, duration: 1, delay: 0.1 });
+        gsap.from(".page-hero p", { opacity: 0, y: -20, duration: 1, delay: 0.3 });
+        gsap.from(".contact-info-card", {
+            scrollTrigger: { trigger: ".contact-page-grid", start: "top 80%" },
+            opacity: 0, x: -40, stagger: 0.15, duration: 0.8, ease: "power2.out"
+        });
+        gsap.from(".contact-form-card", {
+            scrollTrigger: { trigger: ".contact-page-grid", start: "top 80%" },
+            opacity: 0, x: 40, duration: 0.8, ease: "power2.out"
+        });
+        gsap.from(".github-banner", {
+            scrollTrigger: { trigger: ".github-section", start: "top 85%" },
+            opacity: 0, y: 40, duration: 0.9, ease: "power2.out"
+        });
+        gsap.from(".faq-item", {
+            scrollTrigger: { trigger: ".faq-grid", start: "top 85%" },
+            opacity: 0, y: 30, stagger: 0.12, duration: 0.7, ease: "power2.out"
+        });
+
+        function handleSubmit(btn) {
+            btn.textContent = "Inviato! (no)";
+            btn.style.background = "linear-gradient(135deg, #9ad63c, #08bbbf)";
+            setTimeout(() => {
+                btn.textContent = "Invia Messaggio 🚀";
+                btn.style.background = "";
+            }, 2000);
+        }
+
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+    </script>
+    <script src="cursor.js"></script>
+</body>
+</html>
